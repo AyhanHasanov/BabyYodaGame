@@ -18,6 +18,8 @@
     <None Remove="Resources\front3.png" />
     <None Remove="Resources\front4.png" />
     <None Remove="Resources\front5.png" />
+    <None Remove="Resources\penguin-crying.gif" />
+    <None Remove="Resources\penguin.gif" />
     <None Remove="Resources\sprites.png" />
     <None Remove="Resources\walking left 1.png" />
     <None Remove="Resources\walking left 2.png" />
@@ -45,6 +47,8 @@
     <Resource Include="Resources\front3.png" />
     <Resource Include="Resources\front4.png" />
     <Resource Include="Resources\front5.png" />
+    <Resource Include="Resources\penguin-crying.gif" />
+    <Resource Include="Resources\penguin.gif" />
     <Resource Include="Resources\sprites.png" />
     <Resource Include="Resources\walking left 1.png" />
     <Resource Include="Resources\walking left 2.png" />

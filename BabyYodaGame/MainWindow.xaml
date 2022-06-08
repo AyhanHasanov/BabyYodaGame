@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BabyYodaGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="Baby Yoda
+        " Height="600" Width="800">
     <Grid>
         <Canvas Background="Red" Name="MyCanvas" KeyDown="MyCanvas_KeyDown" KeyUp="MyCanvas_KeyUp" Focusable="True">
             <Rectangle Name="player" Height="75" Width="75" Canvas.Left="25" Canvas.Top="27">
@@ -13,12 +14,13 @@
                     <ImageBrush x:Name="imgBrush" ImageSource="Resources/front3.png"/>
                 </Rectangle.Fill>
             </Rectangle>
-
-            <Rectangle Name="penguin" Height="75" Width="75" Canvas.Left="150" Canvas.Top="150">
+            <Label x:Name="fishLbl" Content="0 fishes" FontFamily="Segoe UI" FontSize="25" FontWeight="Bold" Canvas.Left="25"/>
+            <!-- <Rectangle Name="penguin" Height="302" Width="301" Canvas.Left="99" Canvas.Top="255">
                 <Rectangle.Fill>
-                    <ImageBrush x:Name="fishBrush" ImageSource="pack://application:,,,/Resources/penguin-crying.gif"/>
+                    <ImageBrush ImageSource="pack://application:,,,/Resources/penguin-crying.gif"/>
                 </Rectangle.Fill>
             </Rectangle>
+            -->
         </Canvas>
     </Grid>
 </Window>
