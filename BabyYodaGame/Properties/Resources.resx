@@ -151,6 +151,12 @@
   <data name="front5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\front5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="penguin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin.gif;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_crying" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin-crying.gif;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="sprites" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sprites.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
