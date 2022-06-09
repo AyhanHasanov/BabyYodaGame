@@ -5,22 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BabyYodaGame"
         mc:Ignorable="d"
-        Title="Baby Yoda
-        " Height="600" Width="800">
+        Title="No fishes"
+        Height="600" Width="800">
     <Grid>
-        <Canvas Background="Red" Name="MyCanvas" KeyDown="MyCanvas_KeyDown" KeyUp="MyCanvas_KeyUp" Focusable="True">
-            <Rectangle Name="player" Height="75" Width="75" Canvas.Left="25" Canvas.Top="27">
+        <Canvas Name="MyCanvas" KeyDown="MyCanvas_KeyDown" KeyUp="MyCanvas_KeyUp" Focusable="True">
+            <!--<Canvas.Background>
+                <ImageBrush ImageSource="/Resources/map-ready.png"/>
+            </Canvas.Background> -->
+            <Rectangle Name="player" Height="75" Width="75" Canvas.Left="0" Canvas.Top="0">
                 <Rectangle.Fill>
                     <ImageBrush x:Name="imgBrush" ImageSource="Resources/front3.png"/>
                 </Rectangle.Fill>
             </Rectangle>
             <Label x:Name="fishLbl" Content="0 fishes" FontFamily="Segoe UI" FontSize="25" FontWeight="Bold" Canvas.Left="25"/>
-            <!-- <Rectangle Name="penguin" Height="302" Width="301" Canvas.Left="99" Canvas.Top="255">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="pack://application:,,,/Resources/penguin-crying.gif"/>
-                </Rectangle.Fill>
-            </Rectangle>
-            -->
+            <Label x:Name="coords" Content="corrdinates" Canvas.Left="198" Canvas.Top="14"/>
         </Canvas>
     </Grid>
 </Window>

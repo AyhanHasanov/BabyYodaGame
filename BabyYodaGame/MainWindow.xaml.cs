@@ -29,44 +29,31 @@ namespace BabyYodaGame
             Key.A, Key.S, Key.D, Key.W,
             Key.Left, Key.Down, Key.Right, Key.Up
         };
-
         int[] indexes = new int[4] { 0, 0, 0, 0 }; // up down left right
         List<BitmapImage> spritesUp = new List<BitmapImage>();
         List<BitmapImage> spritesDown = new List<BitmapImage>();
         List<BitmapImage> spritesLeft = new List<BitmapImage>();
         List<BitmapImage> spritesRight = new List<BitmapImage>();
-
-        /*private const int NumberOfColumns = 1;
-        private const int NumberOfFrames = 23;
-        private const int FrameWidth = 640;
-        private const int FrameHeight = 640;
-        public static readonly TimeSpan TimePerFrame = TimeSpan.FromSeconds(1 / 60f);
-        private int currentFrame;
-        private TimeSpan timeTillNextFrame;
-        private void OnUpdate(object sender, object e)
-        {
-            this.timeTillNextFrame += TimeSpan.FromSeconds(1 / 60f);
-            if (this.timeTillNextFrame > TimePerFrame)
-            {
-                this.currentFrame = (this.currentFrame + 1 + NumberOfFrames) % NumberOfFrames;
-                var column = this.currentFrame % NumberOfColumns;
-                var row = this.currentFrame / NumberOfColumns;
-
-                this.SpriteSheetOffset.X = -column * FrameWidth;
-                this.SpriteSheetOffset.Y = -row * FrameHeight;
-            }
-        }*/
-
-
+        ImageBrush animationBrush = new ImageBrush();
         DispatcherTimer gameTimer = new DispatcherTimer();
         DispatcherTimer animationTimer = new DispatcherTimer();
+        int objectiveNumber = 0;
+        Point playerPos;
+        Point playerPosMiddle;
+        Point currentFishPos;
+        bool isFishEaten = false;
+
         public MainWindow()
         {
             InitializeComponent();
+            //this.Hide();
+            StartWindow sw = new StartWindow();
+            sw.Show();
             MyCanvas.Focus();
-            gameTimer.Interval = TimeSpan.FromMilliseconds(10);
+            objectiveNumber = sw.ObjectiveNumber;
+            gameTimer.Interval = TimeSpan.FromMilliseconds(2000);
             gameTimer.Tick += Engine;
-            //gameTimer.Start();
+            gameTimer.Start();
 
             animationTimer.Interval = TimeSpan.FromMilliseconds(30);
             animationTimer.Tick += AnimateOnTick;
@@ -77,16 +64,18 @@ namespace BabyYodaGame
             imgBrush.TileMode = TileMode.None;
             player.Fill = imgBrush;
             LoadSpritesInLists();
+            objectiveNumber = rndm.Next(10, 20);
         }
 
         private void AnimateOnTick(object sender, EventArgs e)
         {
-            Move();
+            Walk();
+            CheckIfEats();
         }
 
         private void Engine(object sender, EventArgs e)
         {
-
+            GenerateFishes();
         }
 
         private void MyCanvas_KeyDown(object sender, KeyEventArgs e)
@@ -115,74 +104,116 @@ namespace BabyYodaGame
 
             if (keys.Any(key => key.Equals(e.Key)))
                 animationTimer.Start();
-                
+
         }
 
         private void MyCanvas_KeyUp(object sender, KeyEventArgs e)
         {
             if (keys.Any(key => key.Equals(e.Key)))
                 animationTimer.Stop();
-
         }
 
-        ImageBrush animationBrush = new ImageBrush();
-        private void Move()
+        private void Walk() //animation included
         {
-            try
+            coords.Content = $"player {playerPos.X} {playerPos.Y}\nplayerPos Middle {playerPosMiddle.X} {playerPosMiddle.Y}\n ";
+            coords.Content += $"fishPos {currentFishPos.X} {currentFishPos.Y}";
+            //try
+            //{
+            switch (direction.ToLower())
             {
-                switch (direction.ToLower())
-                {
 
-                    case "up":
-                        //if (Canvas.GetTop(player) <= 0)
-                        Canvas.SetTop(player, Canvas.GetTop(player) - step);
-                        animationBrush.ImageSource = spritesUp[indexes[0]];
-                        player.Fill = animationBrush;
-                        indexes[0]++;
-                        if (indexes[0] == spritesUp.Count-1)
-                        {
-                            indexes[0] = 0;
-                        }
-                        break;
-                    case "down":
-                        //if(Canvas.GetTop(player) >= MyCanvas.ActualHeight)
-                        Canvas.SetTop(player, Canvas.GetTop(player) + step);
-                        animationBrush.ImageSource = spritesDown[indexes[1]];
-                        player.Fill = animationBrush;
-                        indexes[1]++;
-                        if (indexes[1] == spritesDown.Count - 1)
-                        {
-                            indexes[1] = 0;
-                        }
-                        break;
-                    case "left":
-                        //if (Canvas.GetLeft(player) <= 0)
-                        Canvas.SetLeft(player, Canvas.GetLeft(player) - step);
-                        animationBrush.ImageSource = spritesLeft[indexes[2]];
-                        player.Fill = animationBrush;
-                        indexes[2]++;
-                        if (indexes[2] == spritesLeft.Count - 1)
-                        {
-                            indexes[2] = 0;
-                        }
-                        break;
-                    case "right":
-                        //if(Canvas.GetLeft(player) >= MyCanvas.ActualWidth)
-                        
-                        Canvas.SetLeft(player, Canvas.GetLeft(player) + step);
-                        animationBrush.ImageSource = spritesRight[indexes[3]];
-                        player.Fill = animationBrush;
-                        indexes[3]++;
-                        if (indexes[3] == spritesRight.Count - 1)
-                        {
-                            indexes[3] = 0;
-                        }
-                        break;
-                }
+                case "up":
+                    //if (Canvas.GetTop(player) <= 0)
+                    Canvas.SetTop(player, Canvas.GetTop(player) - step);
+                    animationBrush.ImageSource = spritesUp[indexes[0]];
+                    player.Fill = animationBrush;
+                    indexes[0]++;
+                    if (indexes[0] == spritesUp.Count - 1)
+                    {
+                        indexes[0] = 0;
+                    }
+                    break;
+                case "down":
+                    //if(Canvas.GetTop(player) >= MyCanvas.ActualHeight)
+                    Canvas.SetTop(player, Canvas.GetTop(player) + step);
+                    animationBrush.ImageSource = spritesDown[indexes[1]];
+                    player.Fill = animationBrush;
+                    indexes[1]++;
+                    if (indexes[1] == spritesDown.Count - 1)
+                    {
+                        indexes[1] = 0;
+                    }
+                    break;
+                case "left":
+                    //if (Canvas.GetLeft(player) <= 0)
+                    Canvas.SetLeft(player, Canvas.GetLeft(player) - step);
+                    animationBrush.ImageSource = spritesLeft[indexes[2]];
+                    player.Fill = animationBrush;
+                    indexes[2]++;
+                    if (indexes[2] == spritesLeft.Count - 1)
+                    {
+                        indexes[2] = 0;
+                    }
+                    break;
+                case "right":
+                    //if(Canvas.GetLeft(player) >= MyCanvas.ActualWidth)
+                    Canvas.SetLeft(player, Canvas.GetLeft(player) + step);
+                    animationBrush.ImageSource = spritesRight[indexes[3]];
+                    player.Fill = animationBrush;
+                    indexes[3]++;
+                    if (indexes[3] == spritesRight.Count - 1)
+                    {
+                        indexes[3] = 0;
+                    }
+                    break;
             }
-            catch (Exception ex)
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "");
+            //}
+        }
+
+        private void CheckIfEats()
+        {
+            playerPos = new Point(Canvas.GetLeft(player), Canvas.GetTop(player));
+            playerPosMiddle.X = playerPos.X + (player.ActualWidth / 2);
+            playerPosMiddle.Y = playerPos.Y + (player.ActualHeight / 2);
+
+            bool check = playerPosMiddle.X >= currentFishPos.X && playerPosMiddle.X <= currentFishPos.X + 30 &&
+                playerPosMiddle.Y >= currentFishPos.Y && playerPosMiddle.Y <= currentFishPos.Y + 30;
+
+            if (check && !isFishEaten)
             {
-                MessageBox.Show(ex.Message, "");
+                MessageBox.Show("Eaten");
+                isFishEaten = true;
+            }
+        }
+
+        bool isFishGenerated = false;
+        private void GenerateFishes()
+        {
+            if (!isFishGenerated)
+            {
+                Rectangle rec = new Rectangle()
+                {
+                    Width = 30,
+                    Height = 30,
+                    Fill = Brushes.Blue,
+                    Name="Fish"
+                    
+                    
+                };
+
+                int x = rndm.Next(50, 550);
+                int y = rndm.Next(50, 720);
+                currentFishPos = new Point(x, y);
+                Canvas.SetTop(rec, y);
+                Canvas.SetLeft(rec, x);
+                isFishGenerated = true;
+                MyCanvas.Children.Add(rec);
             }
         }
 
