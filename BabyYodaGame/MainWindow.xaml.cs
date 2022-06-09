@@ -23,13 +23,9 @@ namespace BabyYodaGame
     {
         string direction = "idle";
         Random rndm = new Random();
-        private int step = 3;
-        List<Key> keys = new List<Key>()
-        {
-            Key.A, Key.S, Key.D, Key.W,
-            Key.Left, Key.Down, Key.Right, Key.Up
-        };
-        int[] indexes = new int[4] { 0, 0, 0, 0 }; // up down left right
+        private const int step = 3;
+        List<Key> keys = new List<Key>() { Key.A, Key.S, Key.D, Key.W, Key.Left, Key.Down, Key.Right, Key.Up };
+        int[] indexes = new int[4] { 0, 0, 0, 0 }; // Used for animation ordering. Index order: up, down, left, right
         List<BitmapImage> spritesUp = new List<BitmapImage>();
         List<BitmapImage> spritesDown = new List<BitmapImage>();
         List<BitmapImage> spritesLeft = new List<BitmapImage>();
@@ -37,16 +33,17 @@ namespace BabyYodaGame
         ImageBrush animationBrush = new ImageBrush();
         DispatcherTimer gameTimer = new DispatcherTimer();
         DispatcherTimer animationTimer = new DispatcherTimer();
-        int objectiveNumber = 0;
         Point playerPos;
-        Point playerPosMiddle;
+        Point playerPosCenter;
         Point currentFishPos;
         bool isFishEaten = false;
-
+        bool isFishGenerated = false;
+        int objectiveNumber = 0;
+        int fishEatenCount = 0;
         public MainWindow()
         {
             InitializeComponent();
-            //this.Hide();
+
             StartWindow sw = new StartWindow();
             sw.Show();
             MyCanvas.Focus();
@@ -57,14 +54,13 @@ namespace BabyYodaGame
 
             animationTimer.Interval = TimeSpan.FromMilliseconds(30);
             animationTimer.Tick += AnimateOnTick;
-            //animationTimer.Start();
 
             imgBrush = new ImageBrush();
             imgBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/front1.png"));
             imgBrush.TileMode = TileMode.None;
             player.Fill = imgBrush;
             LoadSpritesInLists();
-            objectiveNumber = rndm.Next(10, 20);
+
         }
 
         private void AnimateOnTick(object sender, EventArgs e)
@@ -115,7 +111,7 @@ namespace BabyYodaGame
 
         private void Walk() //animation included
         {
-            coords.Content = $"player {playerPos.X} {playerPos.Y}\nplayerPos Middle {playerPosMiddle.X} {playerPosMiddle.Y}\n ";
+            coords.Content = $"player {playerPos.X} {playerPos.Y}\nplayerPos Middle {playerPosCenter.X} {playerPosCenter.Y}\n ";
             coords.Content += $"fishPos {currentFishPos.X} {currentFishPos.Y}";
             //try
             //{
@@ -179,40 +175,43 @@ namespace BabyYodaGame
         private void CheckIfEats()
         {
             playerPos = new Point(Canvas.GetLeft(player), Canvas.GetTop(player));
-            playerPosMiddle.X = playerPos.X + (player.ActualWidth / 2);
-            playerPosMiddle.Y = playerPos.Y + (player.ActualHeight / 2);
+            playerPosCenter.X = playerPos.X + (player.ActualWidth / 2);
+            playerPosCenter.Y = playerPos.Y + (player.ActualHeight / 2);
 
-            bool check = playerPosMiddle.X >= currentFishPos.X && playerPosMiddle.X <= currentFishPos.X + 30 &&
-                playerPosMiddle.Y >= currentFishPos.Y && playerPosMiddle.Y <= currentFishPos.Y + 30;
+            bool check = playerPosCenter.X >= currentFishPos.X && playerPosCenter.X <= currentFishPos.X + 30 &&
+                playerPosCenter.Y >= currentFishPos.Y && playerPosCenter.Y <= currentFishPos.Y + 30;
 
             if (check && !isFishEaten)
             {
                 MessageBox.Show("Eaten");
                 isFishEaten = true;
+                isFishGenerated = false;
+                fishEatenCount++;
+                scoreLbl.Content = $"Fish eaten:  {fishEatenCount}";
             }
         }
 
-        bool isFishGenerated = false;
         private void GenerateFishes()
         {
-            if (!isFishGenerated)
+            if (!isFishGenerated && fishEatenCount != objectiveNumber)
             {
                 Rectangle rec = new Rectangle()
                 {
                     Width = 30,
                     Height = 30,
                     Fill = Brushes.Blue,
-                    Name="Fish"
-                    
-                    
+                    Name = "Fish"
+
+
                 };
 
-                int x = rndm.Next(50, 550);
-                int y = rndm.Next(50, 720);
+                int x = rndm.Next(50, (int)this.ActualWidth - 64);
+                int y = rndm.Next(50, (int)this.ActualHeight - 64);
                 currentFishPos = new Point(x, y);
                 Canvas.SetTop(rec, y);
                 Canvas.SetLeft(rec, x);
                 isFishGenerated = true;
+                isFishEaten = false;
                 MyCanvas.Children.Add(rec);
             }
         }

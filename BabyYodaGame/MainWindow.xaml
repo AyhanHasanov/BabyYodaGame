@@ -17,7 +17,7 @@
                     <ImageBrush x:Name="imgBrush" ImageSource="Resources/front3.png"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Label x:Name="fishLbl" Content="0 fishes" FontFamily="Segoe UI" FontSize="25" FontWeight="Bold" Canvas.Left="25"/>
+            <Label x:Name="scoreLbl" Content="0 fishes" FontFamily="Segoe UI" FontSize="25" FontWeight="Bold" Canvas.Left="25"/>
             <Label x:Name="coords" Content="corrdinates" Canvas.Left="198" Canvas.Top="14"/>
         </Canvas>
     </Grid>
