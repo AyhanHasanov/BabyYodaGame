@@ -9,12 +9,19 @@
         Height="600" Width="800">
     <Grid>
         <Canvas Name="MyCanvas" KeyDown="MyCanvas_KeyDown" KeyUp="MyCanvas_KeyUp" Focusable="True">
-            <!--<Canvas.Background>
+            <Canvas.Background>
                 <ImageBrush ImageSource="/Resources/map-ready.png"/>
-            </Canvas.Background> -->
-            <Rectangle Name="player" Height="75" Width="75" Canvas.Left="0" Canvas.Top="0">
+            </Canvas.Background>
+            <Rectangle Name="player" Height="75" Width="75" Canvas.Left="75" Canvas.Top="210
+                       ">
                 <Rectangle.Fill>
-                    <ImageBrush x:Name="imgBrush" ImageSource="Resources/front3.png"/>
+                    <ImageBrush x:Name="playerImgBrush" ImageSource="Resources/front3.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Rectangle x:Name="penguin" Height="50" Width="50" Canvas.Left="385" Canvas.Top="229" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                <Rectangle.Fill>
+                    <ImageBrush x:Name="penguinImgBrush" ImageSource="Resources/penguin-crying1.png"/>
                 </Rectangle.Fill>
             </Rectangle>
             <Label x:Name="scoreLbl" Content="0 fishes" FontFamily="Segoe UI" FontSize="25" FontWeight="Bold" Canvas.Left="25"/>

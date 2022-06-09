@@ -151,14 +151,62 @@
   <data name="front5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\front5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="goldenFish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\goldenFish.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gui" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gui.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="map_ready" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map-ready.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="penguin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\penguin.gif;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="penguin_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="penguin_crying" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\penguin-crying.gif;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="penguin_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_10.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_11.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_12.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_5.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_6.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_7.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_8.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin_9.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_crying1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin-crying1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_crying2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin-crying2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_crying3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin-crying3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="penguin_crying4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\penguin-crying4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="sprites" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sprites.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

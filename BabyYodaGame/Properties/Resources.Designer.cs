@@ -173,6 +173,26 @@ namespace BabyYodaGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] goldenFish {
+            get {
+                object obj = ResourceManager.GetObject("goldenFish", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] gui {
+            get {
+                object obj = ResourceManager.GetObject("gui", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] map_ready {
             get {
                 object obj = ResourceManager.GetObject("map_ready", resourceCulture);
@@ -183,9 +203,9 @@ namespace BabyYodaGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] penguin {
+        internal static byte[] penguin_1 {
             get {
-                object obj = ResourceManager.GetObject("penguin", resourceCulture);
+                object obj = ResourceManager.GetObject("penguin_1", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -193,9 +213,149 @@ namespace BabyYodaGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] penguin_crying {
+        internal static byte[] penguin_10 {
             get {
-                object obj = ResourceManager.GetObject("penguin_crying", resourceCulture);
+                object obj = ResourceManager.GetObject("penguin_10", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_11 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_11", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_12 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_12", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_2 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_3 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_4 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_4", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_5 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_5", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_6 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_6", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_7 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_7", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_8 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_8", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_9 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_9", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_crying1 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_crying1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_crying2 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_crying2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_crying3 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_crying3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] penguin_crying4 {
+            get {
+                object obj = ResourceManager.GetObject("penguin_crying4", resourceCulture);
                 return ((byte[])(obj));
             }
         }

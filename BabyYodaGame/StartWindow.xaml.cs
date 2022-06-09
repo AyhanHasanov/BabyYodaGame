@@ -27,7 +27,12 @@ namespace BabyYodaGame
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ObjectiveNumber = random.Next(10, 20);
-            objectiveNumber.Content = ObjectiveNumber.ToString();
+            objectiveNumber.Content = $"Objective: Collect {ObjectiveNumber} fishes to save Penguiny!";
+        }
+
+        private void playBttn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

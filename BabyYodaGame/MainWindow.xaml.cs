@@ -21,25 +21,32 @@ namespace BabyYodaGame
     /// </summary>
     public partial class MainWindow : Window
     {
-        string direction = "idle";
-        Random rndm = new Random();
-        private const int step = 3;
+       
         List<Key> keys = new List<Key>() { Key.A, Key.S, Key.D, Key.W, Key.Left, Key.Down, Key.Right, Key.Up };
-        int[] indexes = new int[4] { 0, 0, 0, 0 }; // Used for animation ordering. Index order: up, down, left, right
         List<BitmapImage> spritesUp = new List<BitmapImage>();
         List<BitmapImage> spritesDown = new List<BitmapImage>();
         List<BitmapImage> spritesLeft = new List<BitmapImage>();
         List<BitmapImage> spritesRight = new List<BitmapImage>();
+        List<BitmapImage> spritesCryingPenguin = new List<BitmapImage>();
+        List<BitmapImage> spritesHappyPenguin = new List<BitmapImage>();
         ImageBrush animationBrush = new ImageBrush();
         DispatcherTimer gameTimer = new DispatcherTimer();
         DispatcherTimer animationTimer = new DispatcherTimer();
+        DispatcherTimer staticAnimationTimer = new DispatcherTimer();
+        Rectangle rec;
         Point playerPos;
         Point playerPosCenter;
         Point currentFishPos;
+        string direction = "idle";
+        Random rndm = new Random();
+        private const int step = 3;
         bool isFishEaten = false;
         bool isFishGenerated = false;
+        bool isWon = false;
+        int[] indexes = new int[4] { 0, 0, 0, 0 }; // Used for animation ordering. Index order: up, down, left, right
         int objectiveNumber = 0;
         int fishEatenCount = 0;
+        int indexPenguinAnimation = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -48,19 +55,34 @@ namespace BabyYodaGame
             sw.Show();
             MyCanvas.Focus();
             objectiveNumber = sw.ObjectiveNumber;
-            gameTimer.Interval = TimeSpan.FromMilliseconds(2000);
+            gameTimer.Interval = TimeSpan.FromMilliseconds(1500);
             gameTimer.Tick += Engine;
             gameTimer.Start();
 
             animationTimer.Interval = TimeSpan.FromMilliseconds(30);
             animationTimer.Tick += AnimateOnTick;
 
-            imgBrush = new ImageBrush();
-            imgBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/front1.png"));
-            imgBrush.TileMode = TileMode.None;
-            player.Fill = imgBrush;
+            playerImgBrush = new ImageBrush();
+            playerImgBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/front1.png"));
+            playerImgBrush.TileMode = TileMode.None;
+            player.Fill = playerImgBrush;
             LoadSpritesInLists();
 
+            staticAnimationTimer.Interval = TimeSpan.FromMilliseconds(10);
+            staticAnimationTimer.Tick += PlayStaticAnimation;
+            staticAnimationTimer.Start();
+            
+
+        }
+
+        private void PlayStaticAnimation(object sender, EventArgs e)
+        {
+            /*if (!isWon)
+            {
+                indexPenguinAnimation++;
+                if(indexPenguinAnimation == spritesCryingPenguin.Count - 1)
+                penguin.Fill = new ImageBrush() { ImageSource = spritesCryingPenguin[indexPenguinAnimation] };
+            }*/
         }
 
         private void AnimateOnTick(object sender, EventArgs e)
@@ -183,7 +205,7 @@ namespace BabyYodaGame
 
             if (check && !isFishEaten)
             {
-                MessageBox.Show("Eaten");
+                MyCanvas.Children.Remove(rec);
                 isFishEaten = true;
                 isFishGenerated = false;
                 fishEatenCount++;
@@ -195,14 +217,12 @@ namespace BabyYodaGame
         {
             if (!isFishGenerated && fishEatenCount != objectiveNumber)
             {
-                Rectangle rec = new Rectangle()
+                rec = new Rectangle()
                 {
                     Width = 30,
                     Height = 30,
-                    Fill = Brushes.Blue,
+                    Fill = new ImageBrush() { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/goldenFish.png")) },
                     Name = "Fish"
-
-
                 };
 
                 int x = rndm.Next(50, (int)this.ActualWidth - 64);
@@ -251,6 +271,28 @@ namespace BabyYodaGame
             spritesRight.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/walking right 4.png")));
             spritesRight.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/walking right 5.png")));
             spritesRight.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/walking right 6.png")));
+            
+            
+            spritesCryingPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin-crying1.png")));
+            spritesCryingPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin-crying2.png")));
+            spritesCryingPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin-crying3.png")));
+            spritesCryingPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin-crying4.png")));
+            
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_1.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_2.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_3.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_4.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_5.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_6.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_7.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_8.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_9.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_10.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_11.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_12.png")));
+        
         }
+    
+    
     }
 }
