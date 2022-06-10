@@ -363,6 +363,16 @@ namespace BabyYodaGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] scoreBackground {
+            get {
+                object obj = ResourceManager.GetObject("scoreBackground", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] sprites {
             get {
                 object obj = ResourceManager.GetObject("sprites", resourceCulture);

@@ -32,7 +32,10 @@ namespace BabyYodaGame
 
         private void playBttn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            mw.objectiveNumber = ObjectiveNumber;
+            this.Hide();
         }
     }
 }

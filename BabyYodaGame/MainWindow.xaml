@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:BabyYodaGame"
         mc:Ignorable="d"
         Title="No fishes"
-        Height="600" Width="800">
+        Height="800" Width="1150">
     <Grid>
         <Canvas Name="MyCanvas" KeyDown="MyCanvas_KeyDown" KeyUp="MyCanvas_KeyUp" Focusable="True">
             <Canvas.Background>
-                <ImageBrush ImageSource="/Resources/map-ready.png"/>
+                <ImageBrush ImageSource="/Resources/map_ready.png"/>
             </Canvas.Background>
             <Rectangle Name="player" Height="75" Width="75" Canvas.Left="75" Canvas.Top="210
                        ">
@@ -24,7 +24,7 @@
                     <ImageBrush x:Name="penguinImgBrush" ImageSource="Resources/penguin-crying1.png"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Label x:Name="scoreLbl" Content="0 fishes" FontFamily="Segoe UI" FontSize="25" FontWeight="Bold" Canvas.Left="25"/>
+            <Label x:Name="scoreLbl" Content="0" FontFamily="Segoe UI" FontSize="25" FontWeight="Bold" Canvas.Left="368" Width="67" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF761E1E"/>
             <Label x:Name="coords" Content="corrdinates" Canvas.Left="198" Canvas.Top="14"/>
         </Canvas>
     </Grid>

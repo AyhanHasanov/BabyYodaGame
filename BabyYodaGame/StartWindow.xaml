@@ -17,6 +17,7 @@
             <Label Name="objectiveNumber" Content="Objective: Collect 00 fishes to save Penguiny!" Canvas.Top="250" Canvas.Left="147" FontFamily="Palatino Linotype" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand"  />
             <Border BorderBrush="#FFB86F50" BorderThickness="2.25" CornerRadius="10" Canvas.Left="238" Canvas.Top="281">
                 <Button Name="playBttn" Width="70" Height="30" Content="Play Now" FontFamily="Palatino Linotype" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="190" Canvas.Top="210" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="0.639,1.646" Click="playBttn_Click">
+                    
                 </Button>
             </Border>
         </Canvas>

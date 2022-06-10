@@ -44,17 +44,15 @@ namespace BabyYodaGame
         bool isFishGenerated = false;
         bool isWon = false;
         int[] indexes = new int[4] { 0, 0, 0, 0 }; // Used for animation ordering. Index order: up, down, left, right
-        int objectiveNumber = 0;
+        public int objectiveNumber = 0;
         int fishEatenCount = 0;
         int indexPenguinAnimation = 0;
         public MainWindow()
         {
             InitializeComponent();
 
-            StartWindow sw = new StartWindow();
-            sw.Show();
+            
             MyCanvas.Focus();
-            objectiveNumber = sw.ObjectiveNumber;
             gameTimer.Interval = TimeSpan.FromMilliseconds(1500);
             gameTimer.Tick += Engine;
             gameTimer.Start();
@@ -209,7 +207,7 @@ namespace BabyYodaGame
                 isFishEaten = true;
                 isFishGenerated = false;
                 fishEatenCount++;
-                scoreLbl.Content = $"Fish eaten:  {fishEatenCount}";
+                scoreLbl.Content = $"{fishEatenCount}";
             }
         }
 

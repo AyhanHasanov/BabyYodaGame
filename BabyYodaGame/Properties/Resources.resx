@@ -158,7 +158,7 @@
     <value>..\Resources\gui.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="map_ready" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\map-ready.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\map_ready.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="penguin_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\penguin_1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -207,6 +207,9 @@
   </data>
   <data name="penguin_crying4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\penguin-crying4.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="scoreBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\scoreBackground.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="sprites" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sprites.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
