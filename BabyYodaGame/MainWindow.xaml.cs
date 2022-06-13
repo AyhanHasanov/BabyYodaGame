@@ -69,6 +69,8 @@ namespace BabyYodaGame
             staticAnimationTimer.Interval = TimeSpan.FromMilliseconds(10);
             staticAnimationTimer.Tick += PlayStaticAnimation;
             staticAnimationTimer.Start();
+
+            scoreLbl.Content = $"{fishEatenCount}/{objectiveNumber:f2}";
             
 
         }
@@ -207,7 +209,7 @@ namespace BabyYodaGame
                 isFishEaten = true;
                 isFishGenerated = false;
                 fishEatenCount++;
-                scoreLbl.Content = $"{fishEatenCount}";
+                scoreLbl.Content = $"{fishEatenCount}/{objectiveNumber:f2}";
             }
         }
 
