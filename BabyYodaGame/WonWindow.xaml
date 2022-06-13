@@ -7,10 +7,14 @@
         mc:Ignorable="d"
         Title="WonWindow" Height="400" Width="550">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/wonUI.png"/>
+        </Grid.Background>
+
         <Canvas>
-            <Canvas.Background>
-                <ImageBrush ImageSource="/Resources/wonUI.png"/>
-            </Canvas.Background>
+            <Border BorderBrush="#FFB86F50" BorderThickness="2.25" CornerRadius="10" Canvas.Left="196" Canvas.Top="310" HorizontalAlignment="Center" VerticalAlignment="Top" Width="158" Height="26">
+                <Button Name="playBttn" Width="70" Height="22" Content="Play Again" FontFamily="Palatino Linotype" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="190" Canvas.Top="210" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="0.639,1.646" Click="playBttn_Click" Foreground="#FF782D2D"/>
+            </Border>
         </Canvas>
     </Grid>
 </Window>

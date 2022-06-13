@@ -151,7 +151,7 @@ namespace BabyYodaGame
                     }
                     break;
                 case "down":
-                    if (player.RadiusY <= 675)
+                    if (playerPos.Y <= 675)
                     {
                         Canvas.SetTop(player, Canvas.GetTop(player) + step);
                         animationBrush.ImageSource = spritesDown[indexes[1]];
@@ -232,6 +232,8 @@ namespace BabyYodaGame
             if (objectiveNumber == fishEatenCount)
             {
                 isWon = true;
+                animationTimer.Stop();
+                gameTimer.Stop();
                 WonWindow wonWindow = new WonWindow();
                 wonWindow.Show();
             }

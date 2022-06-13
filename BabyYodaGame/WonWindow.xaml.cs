@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,11 @@ namespace BabyYodaGame
         public WonWindow()
         {
             InitializeComponent();
+        }
+
+        private void playBttn_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

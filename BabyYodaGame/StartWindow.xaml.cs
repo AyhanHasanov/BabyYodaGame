@@ -37,5 +37,10 @@ namespace BabyYodaGame
             mw.Show();
             this.Hide();
         }
+
+        private void playBttn_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
