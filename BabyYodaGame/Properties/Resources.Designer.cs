@@ -499,5 +499,15 @@ namespace BabyYodaGame.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] wonUI {
+            get {
+                object obj = ResourceManager.GetObject("wonUI", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

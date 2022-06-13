@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:BabyYodaGame"
         mc:Ignorable="d"
         Title="No fishes"
-        Height="800" Width="1150" Icon="/Resources/goldenFish.png" ResizeMode="NoResize">
+        Height="800" Width="1150" Icon="/Resources/goldenFish.png" ResizeMode="NoResize" Closing="Window_Closing" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
-        <Canvas Name="MyCanvas" KeyDown="MyCanvas_KeyDown" KeyUp="MyCanvas_KeyUp" Focusable="True">
+        <Canvas Name="MyCanvas" KeyDown="MyCanvas_KeyDown" KeyUp="MyCanvas_KeyUp" Focusable="True" Width="1150" Height="785">
             <Canvas.Background>
                 <ImageBrush ImageSource="/Resources/map_ready.png"/>
             </Canvas.Background>
@@ -19,12 +19,12 @@
                 </Rectangle.Fill>
             </Rectangle>
 
-            <Rectangle x:Name="penguin" Height="50" Width="50" Canvas.Left="385" Canvas.Top="229" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Rectangle x:Name="penguin" Height="112" Width="112" Canvas.Left="542" Canvas.Top="280" HorizontalAlignment="Left" VerticalAlignment="Center" >
                 <Rectangle.Fill>
                     <ImageBrush x:Name="penguinImgBrush" ImageSource="Resources/penguin-crying1.png"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Label x:Name="scoreLbl" Content="0/00" FontFamily="Segoe UI" FontSize="25" FontWeight="Bold" Canvas.Left="497" Width="175" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF761E1E" Canvas.Top="5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label x:Name="scoreLbl" Content="0/00" FontFamily="Segoe UI" FontSize="25" FontWeight="Bold" Canvas.Left="542" Width="64" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF761E1E" Canvas.Top="5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <Label x:Name="coords" Content="corrdinates" Canvas.Left="198" Canvas.Top="14"/>
         </Canvas>
     </Grid>

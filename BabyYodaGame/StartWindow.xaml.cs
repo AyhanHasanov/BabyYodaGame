@@ -26,15 +26,15 @@ namespace BabyYodaGame
         Random random = new Random();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ObjectiveNumber = random.Next(10, 20);
+            ObjectiveNumber = random.Next(1, 3);
             objectiveNumber.Content = $"Objective: Collect {ObjectiveNumber} fishes to save Penguiny!";
         }
 
         private void playBttn_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
+            mw.objectiveNumber = ObjectiveNumber; 
             mw.Show();
-            mw.objectiveNumber = ObjectiveNumber;
             this.Hide();
         }
     }

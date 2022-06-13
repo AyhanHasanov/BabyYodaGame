@@ -6,14 +6,8 @@
         xmlns:local="clr-namespace:BabyYodaGame"
         mc:Ignorable="d"
         Title="No fishes" Height="400" Width="550"
-        Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Resources/goldenFish.png"
-       
-        >
+        Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Resources/goldenFish.png">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/gui.png"/>
         </Grid.Background>
