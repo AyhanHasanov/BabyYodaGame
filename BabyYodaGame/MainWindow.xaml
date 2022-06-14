@@ -12,13 +12,12 @@
             <Canvas.Background>
                 <ImageBrush ImageSource="/Resources/map_ready.png"/>
             </Canvas.Background>
-            <Rectangle Name="player" Height="75" Width="75" Canvas.Left="75" Canvas.Top="210
-                       ">
+            <Rectangle Name="player" Height="75" Width="75" Canvas.Left="399" Canvas.Top="336">
                 <Rectangle.Fill>
                     <ImageBrush x:Name="playerImgBrush" ImageSource="Resources/front3.png"/>
                 </Rectangle.Fill>
             </Rectangle>
-
+            <Rectangle x:Name="recFenceBoundaries" Canvas.Left="469" Canvas.Top="268" Width="240" Height="190" HorizontalAlignment="Center" VerticalAlignment="Top"></Rectangle>
             <Rectangle x:Name="penguin" Height="112" Width="112" Canvas.Left="542" Canvas.Top="280" HorizontalAlignment="Left" VerticalAlignment="Center" >
                 <Rectangle.Fill>
                     <ImageBrush x:Name="penguinImgBrush" ImageSource="Resources/penguin-crying1.png"/>

@@ -86,7 +86,7 @@ namespace BabyYodaGame
 
         private void TickOnPlayingGame(object sender, EventArgs e)
         {
-            Walk();
+              Walk();
             CheckIfEats();
         }
 
@@ -140,7 +140,7 @@ namespace BabyYodaGame
             {
 
                 case "up":
-                    if (playerPos.Y >= 15)
+                    if (playerPos.Y >= 15 && !IsBumpingToFences())
                     {
                         Canvas.SetTop(player, Canvas.GetTop(player) - step);
                         animationBrush.ImageSource = spritesUp[indexes[0]];
@@ -151,7 +151,7 @@ namespace BabyYodaGame
                     }
                     break;
                 case "down":
-                    if (playerPos.Y <= 675)
+                    if (playerPos.Y <= 675 && !IsBumpingToFences())
                     {
                         Canvas.SetTop(player, Canvas.GetTop(player) + step);
                         animationBrush.ImageSource = spritesDown[indexes[1]];
@@ -162,7 +162,7 @@ namespace BabyYodaGame
                     }
                     break;
                 case "left":
-                    if (playerPos.X >= 15)
+                    if (playerPos.X >= 15 && !IsBumpingToFences())
                     {
                         Canvas.SetLeft(player, Canvas.GetLeft(player) - step);
                         animationBrush.ImageSource = spritesLeft[indexes[2]];
@@ -173,7 +173,7 @@ namespace BabyYodaGame
                     }
                     break;
                 case "right":
-                    if (playerPos.X <= 1050)
+                    if (playerPos.X <= 1050 && !IsBumpingToFences())
                     {
                         Canvas.SetLeft(player, Canvas.GetLeft(player) + step);
                         animationBrush.ImageSource = spritesRight[indexes[3]];
@@ -185,8 +185,27 @@ namespace BabyYodaGame
                     break;
             }
         }
+
+        private bool IsBumpingToFences()
+        {
+            switch (direction.ToString())
+            {
+                case "right":
+                    return playerPos.X + step >= 430 && (playerPos.Y >= 210 && playerPos.Y <= 400);
+                    
+                case "left":
+                    return playerPos.X - step <= 670 && (playerPos.Y >= 210 && playerPos.Y <= 400);
+
+                case "up":
+                    return playerPos.Y + step <= 400 && (playerPos.X >= 430 && playerPos.X <= 670);
+
+                case "down":
+                    return playerPos.Y - step>= 210 && (playerPos.X >= 430 && playerPos.X <= 670);
+            }
+            return false;
+        }
         private void GenerateFishes()
-        { 
+        {
             rec = new Rectangle()
             {
                 Width = 30,
