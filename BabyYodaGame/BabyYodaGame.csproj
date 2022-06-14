@@ -58,6 +58,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\map_ready.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="fish.png" />
     <Resource Include="Resources\back1.png" />
     <Resource Include="Resources\back2.png" />
@@ -72,7 +76,6 @@
     <Resource Include="Resources\front5.png" />
     <Resource Include="Resources\goldenFish.png" />
     <Resource Include="Resources\gui.png" />
-    <Resource Include="Resources\map_ready.png" />
     <Resource Include="Resources\penguin-crying.gif" />
     <Resource Include="Resources\penguin-crying1.png" />
     <Resource Include="Resources\penguin-crying2.png" />
