@@ -32,7 +32,7 @@ namespace BabyYodaGame
         {
             System.Media.SoundPlayer player = new SoundPlayer();
             player.SoundLocation = "wap.wav";
-            player.PlayLooping();
+            player.Play();
 
             /*
             MediaPlayer playMedia = new MediaPlayer(); // making a new instance of the media player

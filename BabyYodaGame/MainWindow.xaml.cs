@@ -89,7 +89,7 @@ namespace BabyYodaGame
             Canvas.SetTop(player, 50);
 
             playAgainBttn.Visibility = Visibility.Hidden;
-            //coords.Visibility = Visibility.Hidden;
+            coords.Visibility = Visibility.Hidden;
             
         }
 
