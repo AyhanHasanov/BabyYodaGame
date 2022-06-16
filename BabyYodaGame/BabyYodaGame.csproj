@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>goldenFish.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -67,6 +68,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="goldenFish.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\historyGUI.png" />
   </ItemGroup>
 
@@ -118,7 +123,9 @@
     <Resource Include="Resources\walking right 4.png" />
     <Resource Include="Resources\walking right 5.png" />
     <Resource Include="Resources\walking right 6.png" />
-    <Resource Include="Resources\wap.wav" />
+    <Resource Include="Resources\wap.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\wonUI.png" />
   </ItemGroup>
 
