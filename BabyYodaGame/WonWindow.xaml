@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BabyYodaGame"
         mc:Ignorable="d"
-        Title="WonWindow" Height="400" Width="550" Icon="/Resources/goldenFish.png" ResizeMode="NoResize">
+        Title="WonWindow" Height="400" Width="550" Icon="/Resources/goldenFish.png" ResizeMode="NoResize"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/wonUI.png"/>
         </Grid.Background>
-
-        <Canvas>
-            <Border BorderBrush="#FFB86F50" BorderThickness="2.25" CornerRadius="10" Canvas.Left="196" Canvas.Top="310" HorizontalAlignment="Center" VerticalAlignment="Top" Width="158" Height="26">
-                <Button Name="playBttn" Width="70" Height="22" Content="Play Again" FontFamily="Palatino Linotype" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="190" Canvas.Top="210" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="0.639,1.646" Click="playBttn_Click" Foreground="#FF782D2D"/>
-            </Border>
-        </Canvas>
+        <Rectangle x:Name="penguiny" RenderTransformOrigin="0.499,0.501" Margin="233,22,0,45">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Resources/penguin_1.png" Stretch="Fill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Canvas/>
+        <Label x:Name="txtLbl" Content="You've saved Penguiny from" HorizontalAlignment="Left" Margin="90,146,0,0" VerticalAlignment="Top" FontFamily="Palatino Linotype" FontStyle="Italic" FontWeight="Bold"/>
     </Grid>
 </Window>

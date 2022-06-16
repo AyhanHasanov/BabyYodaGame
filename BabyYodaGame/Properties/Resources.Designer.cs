@@ -203,16 +203,6 @@ namespace BabyYodaGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] map_ready {
-            get {
-                object obj = ResourceManager.GetObject("map_ready", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] map_ready_captive {
             get {
                 object obj = ResourceManager.GetObject("map_ready_captive", resourceCulture);

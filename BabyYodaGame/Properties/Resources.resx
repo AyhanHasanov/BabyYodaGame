@@ -160,9 +160,6 @@
   <data name="historyGUI" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\historyGUI.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="map_ready" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\map_ready.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="map_ready_captive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map-ready-captive.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using BabyYodaGame.Properties;
 
 namespace BabyYodaGame
@@ -22,11 +23,43 @@ namespace BabyYodaGame
         public WonWindow()
         {
             InitializeComponent();
+            txtLbl.Content = "You've successfully saved Penguiny\n" +
+                "the nasty pirates! Yay you're a hero!"; ;
         }
 
-        private void playBttn_Click(object sender, RoutedEventArgs e)
+        DispatcherTimer animationTimer = new DispatcherTimer();
+        List<BitmapImage> spritesHappyPenguin;
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            animationTimer.Interval = TimeSpan.FromMilliseconds(50);
+            animationTimer.Tick += PlayAnimation;
+            animationTimer.Start();
+            spritesHappyPenguin = new List<BitmapImage>();
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_1.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_2.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_3.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_4.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_5.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_6.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_7.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_8.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_9.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_10.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_11.png")));
+            spritesHappyPenguin.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/penguin_12.png")));
+
+        }
+        int index = 0;
+        private void PlayAnimation(object sender, EventArgs e)
+        {
+            index++;
+            if (index >= spritesHappyPenguin.Count)
+                index = 0;
+
+            ImageBrush br = new ImageBrush();
+            br.ImageSource = spritesHappyPenguin[index];
+
+            penguiny.Fill = br;
         }
     }
 }

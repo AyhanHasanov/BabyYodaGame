@@ -31,10 +31,10 @@ namespace BabyYodaGame
         List<BitmapImage> spritesHappyPenguin = new List<BitmapImage>();
 
         ImageBrush animationBrush = new ImageBrush();
-        
+
         ImageBrush backgroundCaptive = new ImageBrush();
         ImageBrush backgroundFree = new ImageBrush();
-        
+
         DispatcherTimer gameTimer = new DispatcherTimer();
         DispatcherTimer animationTimer = new DispatcherTimer();
         DispatcherTimer staticAnimationTimer = new DispatcherTimer();
@@ -46,7 +46,7 @@ namespace BabyYodaGame
 
         string direction = "idle";
         Random rndm = new Random();
-        private const int step = 3;
+        private const int step = 4;
 
         int[] indexes = new int[4] { 0, 0, 0, 0 }; // Used for animation order. Index order: up, down, left, right
         int indexPenguinAnimation = 0;
@@ -87,6 +87,9 @@ namespace BabyYodaGame
             // sets initial position for player
             Canvas.SetLeft(player, 50);
             Canvas.SetTop(player, 50);
+
+            playAgainBttn.IsEnabled = false;
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -96,7 +99,7 @@ namespace BabyYodaGame
 
         private void TickOnPlayingGame(object sender, EventArgs e)
         {
-              Walk();
+            Walk();
             CheckIfEats();
         }
 
@@ -145,9 +148,14 @@ namespace BabyYodaGame
 
         private void Walk() //animation included
         {
-            coords.Content = $"\nw: {MyCanvas.Width} h: {MyCanvas.Height} \nplayer {playerPos.X} {playerPos.Y}\nplayerPos Middle {playerPosCenter.X} {playerPosCenter.Y}\n ";
-            coords.Content += $"fishPos {currentFishPos.X} {currentFishPos.Y}";
+            coords.Content = $"\nwidht: {MyCanvas.Width} height: {MyCanvas.Height}";
+            coords.Content += $"\nplayer position: {playerPos.X} {playerPos.Y}";
+            coords.Content += $"\nplayer hitbox center: {playerPosCenter.X} {playerPosCenter.Y}";
+            coords.Content += $"\nfish position: {currentFishPos.X} {currentFishPos.Y}";
+            coords.Content += $"\nfish eaten: {fishEatenCount}/{objectiveNumber}";
+            coords.Content += $"\nfish generated: {isFishGenerated}";
             coords.Content += $"\nWon: {isWon}";
+
 
             switch (direction.ToLower())
             {
@@ -164,7 +172,7 @@ namespace BabyYodaGame
                     }
                     break;
                 case "down":
-                    if (playerPos.Y <= 675)
+                    if (isWon && playerPos.Y <= 675)
                     {
                         Canvas.SetTop(player, Canvas.GetTop(player) + step);
                         animationBrush.ImageSource = spritesDown[indexes[1]];
@@ -172,6 +180,19 @@ namespace BabyYodaGame
                         indexes[1]++;
                         if (indexes[1] == spritesDown.Count - 1)
                             indexes[1] = 0;
+
+                    }
+                    else
+                    {
+                        if (playerPos.Y <= 675 && !(playerPos.X >= 770 && playerPos.Y >= 505))
+                        {
+                            Canvas.SetTop(player, Canvas.GetTop(player) + step);
+                            animationBrush.ImageSource = spritesDown[indexes[1]];
+                            player.Fill = animationBrush;
+                            indexes[1]++;
+                            if (indexes[1] == spritesDown.Count - 1)
+                                indexes[1] = 0;
+                        }
                     }
                     break;
                 case "left":
@@ -186,7 +207,8 @@ namespace BabyYodaGame
                     }
                     break;
                 case "right":
-                    if (playerPos.X <= 1050)
+
+                    if (isWon && playerPos.X <= 1000)
                     {
                         Canvas.SetLeft(player, Canvas.GetLeft(player) + step);
                         animationBrush.ImageSource = spritesRight[indexes[3]];
@@ -194,6 +216,18 @@ namespace BabyYodaGame
                         indexes[3]++;
                         if (indexes[3] == spritesRight.Count - 1)
                             indexes[3] = 0;
+                    }
+                    else
+                    {
+                        if (playerPos.X <= 1000 && !(playerPos.X >= 770 && playerPos.Y >= 505))
+                        {
+                            Canvas.SetLeft(player, Canvas.GetLeft(player) + step);
+                            animationBrush.ImageSource = spritesRight[indexes[3]];
+                            player.Fill = animationBrush;
+                            indexes[3]++;
+                            if (indexes[3] == spritesRight.Count - 1)
+                                indexes[3] = 0;
+                        }
                     }
                     break;
             }
@@ -209,8 +243,15 @@ namespace BabyYodaGame
                 Name = "Fish"
             };
 
-            int x = rndm.Next(50, (int)this.ActualWidth - 64);
-            int y = rndm.Next(50, (int)this.ActualHeight - 64);
+            int x = -1, y = -1;
+
+            do
+            {
+                x = rndm.Next(70, 990);
+                y = rndm.Next(70, 650);
+            }
+            while (x >= 750 && y >= 490);
+
             currentFishPos = new Point(x, y);
             Canvas.SetTop(rec, y);
             Canvas.SetLeft(rec, x);
@@ -219,6 +260,7 @@ namespace BabyYodaGame
             MyCanvas.Children.Add(rec);
 
         }
+
         private void CheckIfEats()
         {
             playerPos = new Point(Canvas.GetLeft(player), Canvas.GetTop(player));
@@ -251,6 +293,7 @@ namespace BabyYodaGame
                 WonWindow wonWindow = new WonWindow();
                 wonWindow.Show();
                 MyCanvas.Background = backgroundFree;
+                playAgainBttn.IsEnabled = true;
             }
         }
 
@@ -258,14 +301,20 @@ namespace BabyYodaGame
         {
             indexPenguinAnimation++;
 
-            if (indexPenguinAnimation == spritesCryingPenguin.Count - 1)
-                indexPenguinAnimation = 0;
+            
 
-            if (isWon) 
+            if (isWon)
+            {
+                if (indexPenguinAnimation >= spritesHappyPenguin.Count - 1)
+                    indexPenguinAnimation = 0;
                 penguin.Fill = new ImageBrush() { ImageSource = spritesHappyPenguin[indexPenguinAnimation] };
+            }
             else
+            {
+                if (indexPenguinAnimation >= spritesCryingPenguin.Count - 1)
+                    indexPenguinAnimation = 0;
                 penguin.Fill = new ImageBrush() { ImageSource = spritesCryingPenguin[indexPenguinAnimation] };
-
+            }
 
         }
 
@@ -284,6 +333,11 @@ namespace BabyYodaGame
             fishEatenCount = 0;
             isWon = false;
             isFishGenerated = false;
+            MyCanvas.Background = backgroundCaptive;
+            objectiveNumber = rndm.Next(1, 5);
+            scoreLbl.Content = $"{fishEatenCount}/{objectiveNumber}";
+            gameTimer.Start();
+            playAgainBttn.IsEnabled = false;
 
         }
 
