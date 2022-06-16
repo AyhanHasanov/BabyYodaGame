@@ -335,7 +335,7 @@ namespace BabyYodaGame
             isWon = false;
             isFishGenerated = false;
             MyCanvas.Background = backgroundCaptive;
-            objectiveNumber = rndm.Next(1, 5);
+            objectiveNumber = rndm.Next(10, 20);
             scoreLbl.Content = $"{fishEatenCount}/{objectiveNumber}";
             gameTimer.Start();
             playAgainBttn.Visibility = Visibility.Hidden;

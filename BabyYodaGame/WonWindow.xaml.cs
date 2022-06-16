@@ -30,16 +30,16 @@ namespace BabyYodaGame
         List<BitmapImage> spritesHappyPenguin;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            /*System.Media.SoundPlayer player = new SoundPlayer();
-            player.SoundLocation = "Resources/wap.wav";
-            player.PlayLooping();*/
+            System.Media.SoundPlayer player = new SoundPlayer();
+            player.SoundLocation = "wap.wav";
+            player.PlayLooping();
 
             /*
             MediaPlayer playMedia = new MediaPlayer(); // making a new instance of the media player
             var uri = new Uri("pack://application:,,,/Resources/wap.wav"); // browsing to the sound folder and then the WAV file location
             playMedia.Open(uri); // inserting the URI to the media player
-            playMedia.Play();*/
-            mediaElement.Play();
+            playMedia.Play();
+            mediaElement.Play();*/
             animationTimer.Interval = TimeSpan.FromMilliseconds(50);
             animationTimer.Tick += PlayAnimation;
             animationTimer.Start();

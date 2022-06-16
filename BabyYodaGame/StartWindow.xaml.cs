@@ -29,8 +29,8 @@ namespace BabyYodaGame
         Random random = new Random();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Min = 1;
-            Max = 3;
+            Min = 10;
+            Max = 20;
             ObjectiveNumber = random.Next(Min, Max);
             objectiveNumber.Content = $"Objective: Collect {ObjectiveNumber} fishes to save Penguiny!";
         }
