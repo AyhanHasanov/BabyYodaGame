@@ -45,7 +45,7 @@ namespace BabyYodaGame
         Random rndm = new Random();
         private const int step = 3;
 
-        int[] indexes = new int[4] { 0, 0, 0, 0 }; // Used for animation ordering. Index order: up, down, left, right
+        int[] indexes = new int[4] { 0, 0, 0, 0 }; // Used for animation order. Index order: up, down, left, right
         int indexPenguinAnimation = 0;
 
         public int objectiveNumber = 0;
@@ -77,6 +77,10 @@ namespace BabyYodaGame
             player.Fill = playerImgBrush;
 
             LoadSpritesInLists();
+
+            // sets initial position for player
+            Canvas.SetLeft(player, 50);
+            Canvas.SetTop(player, 50);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -242,7 +246,6 @@ namespace BabyYodaGame
             }
         }
 
-
         private void PlayStaticAnimation(object sender, EventArgs e)
         {
             indexPenguinAnimation++;
@@ -258,6 +261,30 @@ namespace BabyYodaGame
 
         }
 
+        
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void playAgainBttn_Click(object sender, RoutedEventArgs e)
+        {
+            // returns player to its initial position
+            Canvas.SetLeft(player, 50);
+            Canvas.SetTop(player, 50);
+
+            fishEatenCount = 0;
+            isWon = false;
+            isFishGenerated = false;
+
+        }
+
+        private void showHistoryBttn_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryWindow hw = new HistoryWindow();
+            hw.Show();
+            hw.Focus();
+        }
         private void LoadSpritesInLists()
         {
             spritesUp.Add(new BitmapImage(new Uri("pack://application:,,,/Resources/back1.png")));
@@ -310,19 +337,5 @@ namespace BabyYodaGame
 
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void playAgainBttn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void showHistoryBttn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

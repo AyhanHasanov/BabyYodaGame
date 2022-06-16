@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="fish.png" />
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+    <Page Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\back1.png" />
     <None Remove="Resources\back2.png" />
     <None Remove="Resources\back3.png" />
@@ -21,6 +27,7 @@
     <None Remove="Resources\front5.png" />
     <None Remove="Resources\goldenFish.png" />
     <None Remove="Resources\gui.png" />
+    <None Remove="Resources\historyGUI.png" />
     <None Remove="Resources\map_ready.png" />
     <None Remove="Resources\penguin-crying.gif" />
     <None Remove="Resources\penguin-crying1.png" />
@@ -58,11 +65,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\historyGUI.png" />
     <Resource Include="Resources\map_ready.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="fish.png" />
     <Resource Include="Resources\back1.png" />
     <Resource Include="Resources\back2.png" />
     <Resource Include="Resources\back3.png" />
@@ -124,10 +131,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

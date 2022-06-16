@@ -17,6 +17,9 @@ namespace BabyYodaGame
     /// </summary>
     public partial class StartWindow : Window
     {
+
+        public int Min { get; private set; }
+        public int Max { get; private set; }
         public StartWindow()
         {
             InitializeComponent();
@@ -26,7 +29,9 @@ namespace BabyYodaGame
         Random random = new Random();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ObjectiveNumber = random.Next(1, 3);
+            Min = 1;
+            Max = 3;
+            ObjectiveNumber = random.Next(Min, Max);
             objectiveNumber.Content = $"Objective: Collect {ObjectiveNumber} fishes to save Penguiny!";
         }
 
@@ -38,9 +43,11 @@ namespace BabyYodaGame
             this.Hide();
         }
 
-        private void playBttn_Click_1(object sender, RoutedEventArgs e)
+        private void showHistoryBttn_Click(object sender, RoutedEventArgs e)
         {
-
+            HistoryWindow hw  = new HistoryWindow();
+            hw.Show();
+            hw.Focus();
         }
     }
 }

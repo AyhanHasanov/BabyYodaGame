@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BabyYodaGame"
         mc:Ignorable="d"
-        Title="WonWindow" Height="400" Width="550">
+        Title="WonWindow" Height="400" Width="550" Icon="/Resources/goldenFish.png" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/wonUI.png"/>
