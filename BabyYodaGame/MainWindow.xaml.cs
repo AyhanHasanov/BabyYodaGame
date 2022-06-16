@@ -46,7 +46,7 @@ namespace BabyYodaGame
 
         string direction = "idle";
         Random rndm = new Random();
-        private const int step = 4;
+        private const int step = 8;
 
         int[] indexes = new int[4] { 0, 0, 0, 0 }; // Used for animation order. Index order: up, down, left, right
         int indexPenguinAnimation = 0;
@@ -88,7 +88,8 @@ namespace BabyYodaGame
             Canvas.SetLeft(player, 50);
             Canvas.SetTop(player, 50);
 
-            playAgainBttn.IsEnabled = false;
+            playAgainBttn.Visibility = Visibility.Hidden;
+            coords.Visibility = Visibility.Hidden;
             
         }
 
@@ -293,7 +294,7 @@ namespace BabyYodaGame
                 WonWindow wonWindow = new WonWindow();
                 wonWindow.Show();
                 MyCanvas.Background = backgroundFree;
-                playAgainBttn.IsEnabled = true;
+                playAgainBttn.Visibility = Visibility.Visible;
             }
         }
 
@@ -337,7 +338,7 @@ namespace BabyYodaGame
             objectiveNumber = rndm.Next(1, 5);
             scoreLbl.Content = $"{fishEatenCount}/{objectiveNumber}";
             gameTimer.Start();
-            playAgainBttn.IsEnabled = false;
+            playAgainBttn.Visibility = Visibility.Hidden;
 
         }
 

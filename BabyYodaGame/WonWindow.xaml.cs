@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Media;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,14 +24,21 @@ namespace BabyYodaGame
         public WonWindow()
         {
             InitializeComponent();
-            txtLbl.Content = "You've successfully saved Penguiny\n" +
-                "the nasty pirates! Yay you're a hero!"; ;
         }
 
         DispatcherTimer animationTimer = new DispatcherTimer();
         List<BitmapImage> spritesHappyPenguin;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            /*var uri = new Uri(@"pack://application:,,,/Resources/wap.wav");
+            var player = new SoundPlayer("Resources/wap.mp3");
+            player.Load();
+            player.Play();*/
+
+            System.Media.SoundPlayer player = new SoundPlayer();
+            player.SoundLocation = "wap.wav";
+            player.PlayLooping();
+
             animationTimer.Interval = TimeSpan.FromMilliseconds(50);
             animationTimer.Tick += PlayAnimation;
             animationTimer.Start();

@@ -256,6 +256,9 @@
   <data name="walking_right_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\walking right 6.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="wap1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wap.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="wonUI" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wonUI.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

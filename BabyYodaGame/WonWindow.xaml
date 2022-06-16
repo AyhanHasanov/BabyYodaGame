@@ -17,6 +17,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Canvas/>
-        <Label x:Name="txtLbl" Content="You've saved Penguiny from" HorizontalAlignment="Left" Margin="90,146,0,0" VerticalAlignment="Top" FontFamily="Palatino Linotype" FontStyle="Italic" FontWeight="Bold"/>
+        <Label x:Name="txtLbl" FontSize="18" Content="You've saved Penguiny from" HorizontalAlignment="Left" Margin="61,144,0,0" VerticalAlignment="Top" FontFamily="Palatino Linotype" FontStyle="Italic" FontWeight="Bold" Height="37" Width="248"/>
+        <Label x:Name="txtLbl_Copy" FontSize="18" Content="the nasty pirates!" HorizontalAlignment="Left" Margin="61,0,0,0" VerticalAlignment="Center" FontFamily="Palatino Linotype" FontStyle="Italic" FontWeight="Bold" Height="37" Width="248"/>
+        <Label x:Name="txtLbl_Copy1" FontSize="18" Content="Yay you're a hero!!!" HorizontalAlignment="Left" Margin="61,201,0,0" VerticalAlignment="Top" FontFamily="Palatino Linotype" FontStyle="Italic" FontWeight="Bold" Height="37" Width="248"/>
     </Grid>
 </Window>

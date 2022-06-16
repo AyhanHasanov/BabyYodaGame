@@ -37,8 +37,8 @@
                     VerticalAlignment="Center"
                     />
             <Button x:Name="showHistoryBttn" 
-                    Content="History" 
-                    Canvas.Left="661"
+                    Content="Backstory" 
+                    Canvas.Left="652"
                     Canvas.Top="5" 
                     Background="{x:Null}"
                     BorderBrush="{x:Null}" 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BabyYodaGame"
         mc:Ignorable="d"
-        Title="No Fishies" Height="650" Width="1050" Icon="/Resources/goldenFish.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="No Fishies" Height="650" Width="952" Icon="/Resources/goldenFish.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="/Resources/historyGUI.png"/>
     </Window.Background>

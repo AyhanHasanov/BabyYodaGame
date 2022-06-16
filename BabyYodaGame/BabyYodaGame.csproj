@@ -62,6 +62,7 @@
     <None Remove="Resources\walking right 4.png" />
     <None Remove="Resources\walking right 5.png" />
     <None Remove="Resources\walking right 6.png" />
+    <None Remove="Resources\wap.wav" />
     <None Remove="Resources\wonUI.png" />
   </ItemGroup>
 
@@ -117,6 +118,7 @@
     <Resource Include="Resources\walking right 4.png" />
     <Resource Include="Resources\walking right 5.png" />
     <Resource Include="Resources\walking right 6.png" />
+    <Resource Include="Resources\wap.wav" />
     <Resource Include="Resources\wonUI.png" />
   </ItemGroup>
 
