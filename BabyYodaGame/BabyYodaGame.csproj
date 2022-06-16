@@ -28,7 +28,8 @@
     <None Remove="Resources\goldenFish.png" />
     <None Remove="Resources\gui.png" />
     <None Remove="Resources\historyGUI.png" />
-    <None Remove="Resources\map_ready.png" />
+    <None Remove="Resources\map-ready-captive.png" />
+    <None Remove="Resources\map-ready-freedom.png" />
     <None Remove="Resources\penguin-crying.gif" />
     <None Remove="Resources\penguin-crying1.png" />
     <None Remove="Resources\penguin-crying2.png" />
@@ -66,7 +67,6 @@
 
   <ItemGroup>
     <Resource Include="Resources\historyGUI.png" />
-    <Resource Include="Resources\map_ready.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -83,6 +83,8 @@
     <Resource Include="Resources\front5.png" />
     <Resource Include="Resources\goldenFish.png" />
     <Resource Include="Resources\gui.png" />
+    <Resource Include="Resources\map-ready-captive.png" />
+    <Resource Include="Resources\map-ready-freedom.png" />
     <Resource Include="Resources\penguin-crying.gif" />
     <Resource Include="Resources\penguin-crying1.png" />
     <Resource Include="Resources\penguin-crying2.png" />

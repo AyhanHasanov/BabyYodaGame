@@ -163,6 +163,12 @@
   <data name="map_ready" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map_ready.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="map_ready_captive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\map-ready-captive.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="map_ready_freedom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\map-ready-freedom.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="penguin_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\penguin_1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

@@ -31,7 +31,10 @@ namespace BabyYodaGame
         List<BitmapImage> spritesHappyPenguin = new List<BitmapImage>();
 
         ImageBrush animationBrush = new ImageBrush();
-
+        
+        ImageBrush backgroundCaptive = new ImageBrush();
+        ImageBrush backgroundFree = new ImageBrush();
+        
         DispatcherTimer gameTimer = new DispatcherTimer();
         DispatcherTimer animationTimer = new DispatcherTimer();
         DispatcherTimer staticAnimationTimer = new DispatcherTimer();
@@ -66,9 +69,12 @@ namespace BabyYodaGame
             animationTimer.Interval = TimeSpan.FromMilliseconds(30);
             animationTimer.Tick += TickOnPlayingGame;
 
-            staticAnimationTimer.Interval = TimeSpan.FromMilliseconds(50);
+            staticAnimationTimer.Interval = TimeSpan.FromMilliseconds(100);
             staticAnimationTimer.Tick += PlayStaticAnimation;
             staticAnimationTimer.Start();
+            backgroundCaptive.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/map-ready-captive.png"));
+            backgroundFree.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/map-ready-freedom.png"));
+            MyCanvas.Background = backgroundCaptive;
 
             // fill player box
             playerImgBrush = new ImageBrush();
@@ -141,6 +147,7 @@ namespace BabyYodaGame
         {
             coords.Content = $"\nw: {MyCanvas.Width} h: {MyCanvas.Height} \nplayer {playerPos.X} {playerPos.Y}\nplayerPos Middle {playerPosCenter.X} {playerPosCenter.Y}\n ";
             coords.Content += $"fishPos {currentFishPos.X} {currentFishPos.Y}";
+            coords.Content += $"\nWon: {isWon}";
 
             switch (direction.ToLower())
             {
@@ -243,6 +250,7 @@ namespace BabyYodaGame
                 gameTimer.Stop();
                 WonWindow wonWindow = new WonWindow();
                 wonWindow.Show();
+                MyCanvas.Background = backgroundFree;
             }
         }
 
@@ -253,15 +261,15 @@ namespace BabyYodaGame
             if (indexPenguinAnimation == spritesCryingPenguin.Count - 1)
                 indexPenguinAnimation = 0;
 
-            if (!isWon)
-                penguin.Fill = new ImageBrush() { ImageSource = spritesCryingPenguin[indexPenguinAnimation] };
-
+            if (isWon) 
+                penguin.Fill = new ImageBrush() { ImageSource = spritesHappyPenguin[indexPenguinAnimation] };
             else
                 penguin.Fill = new ImageBrush() { ImageSource = spritesCryingPenguin[indexPenguinAnimation] };
 
+
         }
 
-        
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Environment.Exit(0);
